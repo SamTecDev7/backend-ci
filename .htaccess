@@ -1,0 +1,23 @@
+RewriteEngine on
+
+<IfModule mod_env.c>
+    SetEnv CI_ENV development
+</IfModule>
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php?$1 [L]
+# DO NOT REMOVE THIS LINE AND THE LINES BELOW SSL_REDIRECT:workanatestes.tk
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} ^workanatestes.tk$
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# DO NOT REMOVE THIS LINE AND THE LINES ABOVE SSL_REDIRECT:workanatestes.tk
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELOW SSL_REDIRECT:applyperfect.club
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} ^applyperfect.club$
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# DO NOT REMOVE THIS LINE AND THE LINES ABOVE SSL_REDIRECT:applyperfect.club
